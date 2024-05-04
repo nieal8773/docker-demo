@@ -6,7 +6,7 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     def myTestContainer = docker.image('node:17-alpine')
+     def myTestContainer = docker.image('node:17-alpine').run("-u root")
      myTestContainer.pull()
      myTestContainer.inside {
        sh 'npm install'
