@@ -10,6 +10,7 @@ node {
      myTestContainer.pull()
      myTestContainer.inside {
        sh 'npm install --only=dev'
+       sh 'node --version'
        sh 'npm test'
      }
    }
