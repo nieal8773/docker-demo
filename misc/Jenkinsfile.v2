@@ -8,7 +8,7 @@ node {
    stage('test') {
      def myTestContainer = docker.image('node:22-alpine')
      myTestContainer.pull()
-     myTestContainer.inside("--entrypoint=''") {
+     myTestContainer.inside("--user='root'") {
        echo "Tests passed"
        sh 'npm install'
        sh 'node --version'
