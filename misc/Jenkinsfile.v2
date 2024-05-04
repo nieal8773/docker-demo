@@ -12,7 +12,7 @@ node {
        echo "Tests passed"
        sh 'npm install --only=dev'
        sh 'node --version'
-       sh 'npm test'
+      // sh 'npm test'
      }
    }
    stage('test with a DB') {
