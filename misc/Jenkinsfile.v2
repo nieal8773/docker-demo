@@ -5,6 +5,18 @@ node {
      sh "git rev-parse --short HEAD > .git/commit-id"
      commit_id = readFile('.git/commit-id').trim()
    }
+   stage('Test') {
+      agent {
+         docker {
+         image 'node:17-alpine'
+            args '-p 3000:3000 -p 5000:5000 -u root'
+            }
+         }
+         steps {
+            sh 'npm install --only=dev'
+            sh 'npm test'
+            }
+      }
    stage('test') {
      def myTestContainer = docker.image('node:17-alpine')
      myTestContainer.pull()
