@@ -9,7 +9,7 @@ node {
      def myTestContainer = docker.image('node:17-alpine')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'npm install'
+       sh 'npm install --only=dev'
        sh 'npm test'
      }
    }
