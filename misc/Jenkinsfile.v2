@@ -10,9 +10,9 @@ node {
      myTestContainer.pull()
      myTestContainer.inside("--entrypoint=''") {
        echo "Tests passed"
-       sh 'npm install --only=dev'
-       sh 'node --version'
-      // sh 'npm test'
+       sh 'sudo npm install --only=dev'
+       sh 'sudo node --version'
+      // sh 'sudo npm test'
      }
    }
    stage('test with a DB') {
